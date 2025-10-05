@@ -163,6 +163,11 @@ nav {
   backdrop-filter: blur(4px);
 }
 
+.events-grid .event-card,
+.events-grid .event-card .meta h3,
+.events-grid .event-card .meta p {
+  text-decoration: none;
+}
 .events-grid {
   max-width: 1200px;
   margin: 20px auto 60px;
@@ -184,7 +189,7 @@ nav {
   display: flex;
   align-items: flex-end;
   padding: 14px;
-  color: #333333;
+  color: #ffffff;
   background-color: var(--card);
 }
 .event-card::before {

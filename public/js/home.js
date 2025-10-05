@@ -10,7 +10,7 @@
 	const featured = events.slice(0, 4);
 	if (featured.length === 0) {
 		track.innerHTML = `<div class="carousel-slide active" style="background-image:url('${fallbackImg}')">
-      <div class="carousel-caption">No Events</div></div>`;
+      	<div class="carousel-caption">No Events</div></div>`;
 	} else {
 		featured.forEach((ev, idx) => {
 			const url = ev.image_url || fallbackImg;
@@ -39,9 +39,9 @@
 		card.href = `/html/event.html?id=${ev.id}`;
 		card.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${img}')`;
 		card.innerHTML = `<div class="meta">
-      <h3>${ev.name}</h3>
-      <p>${ev.category_name || ''} · ${ev.org_name || ''}</p>
-    </div>`;
+			<h3>${ev.name}</h3>
+			<p>${ev.category_name || ''} · ${ev.org_name || ''}</p>
+    	</div>`;
 		grid.appendChild(card);
 	});
 
