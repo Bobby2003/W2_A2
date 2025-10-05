@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Event Detail</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-  <nav>
-    <div class="site-title">Charity Events</div>
-    <div class="nav-links">
-      <a href="/html/index.html">Home</a>
-      <a href="/html/search.html">Search</a>
+  <head>
+    <meta charset="utf-8" />
+    <title>Event Detail</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="site-title">Charity Events</div>
+      <div class="nav-links">
+        <a href="/html/index.html">Home</a>
+        <a href="/html/search.html">Search</a>
+      </div>
+    </nav>
+
+    <div class="event-detail-wrap" id="event-wrap"></div>
+
+    <div class="modal" id="img-modal">
+      <div class="content">
+        <div class="close" id="modal-close">✕</div>
+        <img id="modal-img" src="" alt="Large image" />
+      </div>
     </div>
-  </nav>
 
-  <div class="event-detail-wrap" id="event-wrap">
-  </div>
-
-  <div class="modal" id="img-modal">
-    <div class="content">
-      <div class="close" id="modal-close">✕</div>
-      <img id="modal-img" src="" alt="Large image">
-    </div>
-  </div>
-
-  <script src="/js/event.js"></script>
-</body>
+    <script src="/js/event.js"></script>
+  </body>
 </html>

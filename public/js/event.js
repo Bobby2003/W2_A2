@@ -1,18 +1,18 @@
-(async function(){
-  const params = new URLSearchParams(location.search);
-  const id = params.get('id');
-  const wrap = document.getElementById('event-wrap');
-  const fallback = 'https://via.placeholder.com/800x450?text=No+Image';
+(async function () {
+	const params = new URLSearchParams(location.search);
+	const id = params.get('id');
+	const wrap = document.getElementById('event-wrap');
+	const fallback = 'https://via.placeholder.com/800x450?text=No+Image';
 
-  if(!id){
-    wrap.innerHTML = '<p>Invalid event id.</p>'; return;
-  }
+	if (!id) {
+		wrap.innerHTML = '<p>Invalid event id.</p>'; return;
+	}
 
-    const res = await fetch(`/api/events/${id}`);
-    if(!res.ok){ wrap.innerHTML = '<p>Event not found.</p>'; return; }
-    const e = await res.json();
+	const res = await fetch(`/api/events/${id}`);
+	if (!res.ok) { wrap.innerHTML = '<p>Event not found.</p>'; return; }
+	const e = await res.json();
 
-    wrap.innerHTML = `
+	wrap.innerHTML = `
       <div style="margin-bottom:12px;"><button class="btn ghost" onclick="history.back()">← Back</button></div>
       <div class="event-header">
         <div class="cover" id="cover">
@@ -38,20 +38,20 @@
       </section>
     `;
 
-    const cover = document.getElementById('cover');
-    const modal = document.getElementById('img-modal');
-    const modalImg = document.getElementById('modal-img');
-    const closeBtn = document.getElementById('modal-close');
+	const cover = document.getElementById('cover');
+	const modal = document.getElementById('img-modal');
+	const modalImg = document.getElementById('modal-img');
+	const closeBtn = document.getElementById('modal-close');
 
-    cover.addEventListener('click', ()=>{
-      modalImg.src = e.image_url || fallback;
-      modal.style.display = 'flex';
-    });
-    closeBtn.addEventListener('click', ()=> modal.style.display = 'none');
-    modal.addEventListener('click', (ev)=> { if(ev.target === modal) modal.style.display='none'; });
+	cover.addEventListener('click', () => {
+		modalImg.src = e.image_url || fallback;
+		modal.style.display = 'flex';
+	});
+	closeBtn.addEventListener('click', () => modal.style.display = 'none');
+	modal.addEventListener('click', (ev) => { if (ev.target === modal) modal.style.display = 'none'; });
 
-    document.getElementById('register-btn').addEventListener('click', ()=> {
-      alert('This feature is currently under construction.');
-    });
+	document.getElementById('register-btn').addEventListener('click', () => {
+		alert('This feature is currently under construction.');
+	});
 
 })();
