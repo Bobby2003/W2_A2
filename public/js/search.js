@@ -14,12 +14,14 @@
 	});
 
 	document.getElementById('btnSearch').addEventListener('click', async () => {
-		const date = document.getElementById('date').value;
+		const startDate = document.getElementById('startDate').value;
+		const endDate = document.getElementById('endDate').value;
 		const location = document.getElementById('location').value.trim();
 		const category = document.getElementById('category').value;
 
 		let url = `${base}?`;
-		if (date) url += `date=${encodeURIComponent(date)}&`;
+		if (startDate) url += `start_date=${encodeURIComponent(startDate)}&`;
+		if (endDate) url += `end_date=${encodeURIComponent(endDate)}&`;
 		if (location) url += `location=${encodeURIComponent(location)}&`;
 		if (category) url += `category_id=${encodeURIComponent(category)}&`;
 
@@ -56,3 +58,80 @@
 		resultsDiv.appendChild(wrap);
 	}
 })();
+
+
+
+
+// 爱心拖尾效果
+document.addEventListener('DOMContentLoaded', function () {
+    const trailContainer = document.getElementById('trailContainer');
+    let hearts = [];
+    let heartCount = 12; // 同时显示的爱心数量
+
+    // 预创建爱心元素
+    for (let i = 0; i < heartCount; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'trail-heart';
+
+        // 随机分配大小和颜色
+        const sizes = ['small', 'medium', 'large'];
+        const colors = ['gold', 'pink', 'white', 'green'];
+
+        heart.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+        heart.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+
+        // 随机添加跳动效果
+        if (Math.random() > 0.7) {
+            heart.classList.add('bounce');
+        }
+
+        trailContainer.appendChild(heart);
+        hearts.push({
+            element: heart,
+            x: 0,
+            y: 0
+        });
+    }
+
+    let currentHeart = 0;
+
+    // 鼠标移动事件
+    document.addEventListener('mousemove', function (e) {
+        const heart = hearts[currentHeart];
+        const heartElement = heart.element;
+
+        // 更新位置
+        heart.x = e.clientX;
+        heart.y = e.clientY;
+
+        // 应用位置
+        heartElement.style.left = heart.x + 'px';
+        heartElement.style.top = heart.y + 'px';
+
+        // 重置动画
+        heartElement.style.animation = 'none';
+        void heartElement.offsetWidth; // 触发重绘
+        heartElement.style.animation = null;
+
+        // 移动到下一个爱心
+        currentHeart = (currentHeart + 1) % heartCount;
+    });
+
+    // 鼠标离开窗口时隐藏所有爱心
+    document.addEventListener('mouseleave', function () {
+        hearts.forEach(heart => {
+            heart.element.style.opacity = '0';
+        });
+    });
+
+    // 鼠标进入窗口时重新显示
+    document.addEventListener('mouseenter', function () {
+        hearts.forEach(heart => {
+            heart.element.style.opacity = '0.9';
+        });
+    });
+});
+
+
+
+

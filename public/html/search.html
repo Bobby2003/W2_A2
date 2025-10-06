@@ -1,45 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <title>Search Events</title>
     <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
+</head>
+
+
+<!-- 和平鸽飘落效果 -->
+<div class="dove-fall">
+    <div class="dove small">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove medium">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove large">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove small">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove medium">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove large">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove small">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove medium">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove large">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove small">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove medium">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove large">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove small">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove medium">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+    <div class="dove large">
+        <div class="head"></div>
+        <div class="tail"></div>
+        <div class="olive-branch"></div>
+    </div>
+</div>
+<!-- 鼠标拖尾效果 -->
+<div class="trail-container" id="trailContainer"></div>
+
+
+
+
+<body>
     <nav>
-      <div class="site-title">Charity Events</div>
-      <div class="nav-links">
-        <a href="/html/index.html">Home</a>
-        <a href="/html/search.html" class="active">Search</a>
-      </div>
+        <div class="site-title">Charity Events</div>
+        <div class="nav-links">
+            <a href="/html/index.html">Home</a>
+            <a href="/html/search.html" class="active">Search</a>
+        </div>
     </nav>
 
     <div class="search-wrap">
-      <div style="text-align: center; margin-top: 18px">
-        <button
-          onclick="location.href='/html/index.html'"
-          class="btn btn-ghost"
-        >
-          ← Back to Home
-        </button>
-      </div>
+        <div style="text-align: center; margin-top: 18px">
+            <button onclick="location.href='/html/index.html'"
+                    class="btn btn-ghost">
+                ← Back to Home
+            </button>
+        </div>
 
-      <div class="search-box" style="margin-top: 18px">
-        <input id="date" type="date" />
-        <input id="location" type="text" placeholder="Location" />
-        <select id="category">
-          <option value="">All categories</option>
-        </select>
-        <button id="btnSearch" class="btn">Search</button>
-        <button id="btnClear" class="btn ghost">Clear Filters</button>
-      </div>
+        <div class="search-box" style="margin-top: 18px">
+            <!-- 将原来的单个日期输入改为时间段 -->
+            <input id="startDate" type="date" placeholder="开始日期" />
+            <input id="endDate" type="date" placeholder="结束日期" />
+            <input id="location" type="text" placeholder="Location" />
+            <select id="category">
+                <option value="">All categories</option>
+            </select>
+            <button id="btnSearch" class="btn">Search</button>
+            <button id="btnClear" class="btn ghost">Clear Filters</button>
+        </div>
 
-      <div
-        id="search-results"
-        style="max-width: 900px; margin: 18px auto; padding: 0 20px"
-      ></div>
+        <div id="search-results"
+             style="max-width: 900px; margin: 18px auto; padding: 0 20px"></div>
     </div>
 
     <script src="/js/search.js"></script>
-  </body>
+</body>
 </html>
